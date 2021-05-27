@@ -1,0 +1,16 @@
+- name: install app
+  hosts: localhost
+  roles: 
+       - vscode
+  tasks: 
+       - name: Install ZAP security tool
+         become: yes
+         command: sh ./zap.sh
+         
+       - name: Running ZAP application for security test.
+         become: yes
+         command: sh ./zap.sh --run
+         
+       - name: Open VScode for Dev activities. 
+         become: no
+         command: code
